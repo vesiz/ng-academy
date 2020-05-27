@@ -4,6 +4,13 @@
 
 export const environment = {
 	production: false,
+	apiUrl: 'http://localhost:3000',
+	localStorageKeys: {
+		accessTokenKey: 'access-token',
+		tokenCreationDateKey: 'creation-date',
+		loggedUserEmail: 'logged-user',
+	},
+	baseAvatar: 'https://vectorified.com/images/default-image-icon-7.jpg',
 };
 
 /*
