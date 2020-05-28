@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { User } from 'src/app/shared/models/user.model';
 import { environment } from 'src/environments/environment';
+import { AuthResponse } from '../models/auth-response';
 
 @Injectable({
 	providedIn: 'root',
@@ -13,11 +14,11 @@ export class AuthService {
 
 	constructor(private http: HttpClient) {}
 
-	login(user: User): Observable<string> {
-		return this.http.post<string>(`${this.baseUrl}/login`, user);
+	login(user: User): Observable<AuthResponse> {
+		return this.http.post<AuthResponse>(`${this.baseUrl}/login`, user);
 	}
 
-	register(user: User): Observable<string> {
-		return this.http.post<string>(`${this.baseUrl}/register`, user);
+	register(user: User): Observable<AuthResponse> {
+		return this.http.post<AuthResponse>(`${this.baseUrl}/register`, user);
 	}
 }

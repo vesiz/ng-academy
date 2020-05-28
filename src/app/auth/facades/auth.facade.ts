@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { User } from 'src/app/shared/models/user.model';
 import { environment } from 'src/environments/environment';
+import { AuthResponse } from '../models/auth-response';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -14,11 +15,11 @@ export class AuthFacade {
 
 	constructor(private authService: AuthService) {}
 
-	login(user: User): Observable<string> {
+	login(user: User): Observable<AuthResponse> {
 		return this.authService.login(user);
 	}
 
-	register(user: User): Observable<string> {
+	register(user: User): Observable<AuthResponse> {
 		return this.authService.register(user);
 	}
 
