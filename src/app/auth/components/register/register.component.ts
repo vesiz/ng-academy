@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 		private fb: FormBuilder, //
 		private authFacade: AuthFacade,
 		private router: Router
-	) { }
+	) {}
 
 	ngOnInit(): void {
 		this.buildForm();
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				email: ['', [Validators.required]],
 				password: ['', [Validators.required]],
 				confirmPassword: ['', [Validators.required]],
-				adminRights: ['']
+				adminRights: [''],
 			},
 			{ validators: this.validatePassword }
 		);
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 			firstName: this.registerForm.value.firstName,
 			lastName: this.registerForm.value.lastName,
 			avatar: environment.baseAvatar,
-			adminRights: this.registerForm.value.adminRights
+			adminRights: this.registerForm.value.adminRights,
 		};
 
 		return user;
@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				(response) => {
 					this.authFacade.setTokens(response.accessToken, this.registerForm.value.email);
 					this.loading$.next(false);
-					this.router.navigate(['/posts']);
+					this.router.navigate(['/']);
 				},
 				(error: HttpErrorResponse) => {
 					this.errorMessage = error.error;

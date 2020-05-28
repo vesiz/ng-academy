@@ -1,3 +1,13 @@
 {
-	"users": []
+  "users": [
+    {
+      "email": "admin@mail.com",
+      "password": "$2a$10$KpUSbxPrKhhurh6mL0EoJekWAacoUTa0TFrSoDrLb9BKtFd7Vxgim",
+      "firstName": "admin",
+      "lastName": "admin",
+      "avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
+      "adminRights": true,
+      "id": 1
+    }
+  ]
 }

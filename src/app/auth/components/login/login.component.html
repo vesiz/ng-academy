@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="login-wrapper">
+	<div class="container">
+		<div class="title">NgAcademy</div>
+		<div class="form-wrapper">
+			<div class="form">
+				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+					<div class="form-item">
+						<label for="email">E-mail</label>
+						<input type="email" formControlName="email">
+					</div>
+					<div class="form-item">
+						<label for="password">Password</label>
+						<input type="password" formControlName="password">
+					</div>
+					<div class="form-item submit">
+						<button type="submit" [disabled]="(loading$ | async) ? true : !loginForm.valid">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="error-message">{{errorMessage}}</div>
+		<div class="register">Don't have an account? <a routerLink="/auth/register">Sign up!</a></div>
+	</div>
+</div>
