@@ -1,0 +1,63 @@
+@import '../../../../assets/scss/variables.scss';
+
+.header {
+	float: left;
+	background-color: $na-primary;
+	height: 70px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	display: flex;
+
+	.logo {
+		display: inline-block;
+		margin: 10px;
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin-left: 15px;
+		outline: none;
+		text-decoration: none;
+
+		a {
+			color: #fff;
+			text-decoration: none;
+
+			&:hover,
+			&:active,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.nav {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-end;
+
+		a {
+			margin-left: 10px;
+			padding: 10px;
+			font-size: 2em;
+			padding-bottom: 20px;
+			font-weight: 700;
+			outline: none;
+			color: #fff;
+			text-decoration: none;
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $na-dark-primary-1;
+				transition: 0.3s;
+				text-decoration: none;
+			}
+		}
+
+		.active {
+			background-color: $na-dark-primary-1;
+			color: #fff;
+			outline: none;
+		}
+	}
+}
