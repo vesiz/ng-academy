@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
+import { UsersModule } from './main/users/users.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
 		BrowserModule, //
 		AppRoutingModule,
 		HttpClientModule,
+		UsersModule,
 		StoreModule.forRoot({}),
 		EffectsModule.forRoot([]),
 		StoreDevtoolsModule.instrument({

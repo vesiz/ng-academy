@@ -87,6 +87,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				(error: HttpErrorResponse) => {
 					this.errorMessage = error.error;
 					this.loading$.next(false);
+					this.buildForm();
 				}
 			);
 	}
