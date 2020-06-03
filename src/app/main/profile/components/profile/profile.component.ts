@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
 		if (this.loggedUser.adminRights) {
 			this.coursesStore.pipe(select(CoursesSelectors.selectLoggedUserCourses)).subscribe((response) => {
 				this.courses = response;
-				console.log(this.courses);
 			});
 		} else {
 			this.coursesStore.pipe(select(CoursesSelectors.selectloggedUserFavourites)).subscribe((response) => {

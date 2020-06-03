@@ -46,6 +46,10 @@ export class UsersFacade implements OnDestroy {
 		this.store.dispatch(UsersActions.updateUser({ user: user }));
 	}
 
+	deleteUser(id: number): void {
+		this.store.dispatch(UsersActions.deleteUser({ id: id }));
+	}
+
 	storeUpdatedUser(user: User): void {
 		this.store.dispatch(UsersActions.storeUpdatedUser({ updatedUser: user }));
 	}

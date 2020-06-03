@@ -25,6 +25,12 @@ export const usersReducer = createReducer(
 			allUsers: usersList.map((user) => (user.email === action.updatedUser.email ? action.updatedUser : user)),
 			loggedUser: { ...action.updatedUser },
 		};
+	}),
+	on(UsersActions.deleteUser, (state, action) => {
+		return {
+			...state,
+			allUsers: [...state.allUsers.filter((user) => user.id !== action.id)],
+		};
 	})
 );
 

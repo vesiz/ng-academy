@@ -111,6 +111,11 @@
 					.rating-field {
 						display: flex;
 					}
+
+					span {
+						font-weight: 500;
+						color: $na-yellow;
+					}
 				}
 
 				.other-icons {

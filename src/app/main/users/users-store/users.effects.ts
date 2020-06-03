@@ -33,5 +33,16 @@ export class UsersEffects {
 		{ dispatch: false }
 	);
 
+	deleteUser$ = createEffect(
+		() =>
+			this.actions$.pipe(
+				ofType(UsersActions.deleteUser),
+				mergeMap((action) => {
+					return this.usersService.deleteUser(action.id);
+				})
+			),
+		{ dispatch: false }
+	);
+
 	constructor(private actions$: Actions, private usersService: UsersService) {}
 }

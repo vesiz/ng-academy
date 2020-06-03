@@ -1,3 +1,16 @@
 <div class="users-list-wrapper">
 	<div class="title">All Users</div>
+	<div class="users-list" *ngIf="users">
+		<ng-container *ngFor="let user of users">
+			<div class="user" *ngIf="!user.adminRights">
+				<div class="name">
+					{{ user.firstName + ' ' + user.lastName + ' ' }} <span>({{ user.email }})</span>
+				</div>
+				<div class="actions">
+					<div (click)="onDelete(user)" class="icon delete" title="Delete User"></div>
+					<div (click)="onBlock(user)" class="icon block" title="Block User"></div>
+				</div>
+			</div>
+		</ng-container>
+	</div>
 </div>

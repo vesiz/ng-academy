@@ -1,5 +1,16 @@
 @import '../../../../../assets/scss/variables.scss';
 
+@mixin icon($name, $active-color, $inactive-color) {
+	-webkit-mask: url('../../../../../assets/images/icons/#{$name}.svg') no-repeat center;
+	mask: url('../../../../../assets/images/icons/#{$name}.svg') no-repeat center;
+	background-color: $inactive-color;
+
+	&:hover {
+		background-color: $active-color;
+		transition: 0.2s;
+	}
+}
+
 .users-list-wrapper {
 	width: 70%;
 	margin: auto;
@@ -11,5 +22,40 @@
 		padding: 15px 20px 10px 20px;
 		text-align: center;
 		margin-bottom: 30px;
+	}
+
+	.users-list {
+		.user {
+			display: flex;
+			justify-content: space-between;
+			font-size: 2rem;
+			border-bottom: 1px solid $na-light-primary;
+			padding: 10px 15px 5px 15px;
+
+			span {
+				color: $na-grey;
+				font-size: 1.6rem;
+			}
+
+			.actions {
+				display: flex;
+
+				.icon {
+					width: 20px;
+					height: 20px;
+					background-color: $na-dark;
+					margin-left: 10px;
+					cursor: pointer;
+				}
+
+				.delete {
+					@include icon('delete', $na-danger, $na-dark);
+				}
+
+				.block {
+					@include icon('block', $na-danger, $na-dark);
+				}
+			}
+		}
 	}
 }

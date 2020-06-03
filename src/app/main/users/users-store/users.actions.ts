@@ -32,3 +32,8 @@ export const storeUpdatedUser = createAction(
 	actionTypes.STORE_UPDATED_USER, //
 	props<{ updatedUser: User }>()
 );
+
+export const deleteUser = createAction(
+	actionTypes.DELETE_USER, //
+	props<{ id: number }>()
+);
