@@ -1,0 +1,50 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.profile-overview-wrapper {
+	display: flex;
+	border-radius: 3px;
+
+	.profile-overview-container {
+		width: 100%;
+		box-shadow: $na-box-shadow;
+		background-color: #fff;
+
+		.name {
+			text-align: center;
+			padding: 10px;
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		.avatar {
+			border-bottom: 10px solid $na-dark-primary-2;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.links {
+			div {
+				text-align: center;
+				padding: 10px;
+				background-color: $na-primary;
+				color: #fff;
+				font-weight: 700;
+				font-size: 20px;
+				cursor: pointer;
+				text-decoration: none;
+
+				&:hover,
+				:active {
+					background-color: $na-dark-primary-1;
+					transition: 0.2s;
+				}
+			}
+
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}

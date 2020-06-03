@@ -1,0 +1,42 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.profile-wrapper {
+	width: 90%;
+	margin: 100px auto;
+	display: flex;
+	justify-content: space-between;
+
+	.profile-overview {
+		app-profile-overview {
+			width: 220px;
+			position: fixed;
+		}
+	}
+
+	.courses-list {
+		width: calc(100% - 240px);
+		align-items: flex-end;
+		margin-left: 30px;
+
+		.title {
+			font-size: 2rem;
+			box-shadow: $na-box-shadow;
+			border-bottom: 10px solid $na-dark-primary-2;
+			padding: 15px 20px 10px 20px;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.list {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			.item {
+				width: 48%;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

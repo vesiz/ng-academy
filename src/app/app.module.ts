@@ -9,7 +9,10 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
+import { CoursesEffects } from './main/courses/courses-store/courses.effects';
+import { UsersEffects } from './main/users/users-store/users.effects';
 import { UsersModule } from './main/users/users.module';
+import { appReducers } from './root-store/app.reducer';
 
 @NgModule({
 	declarations: [AppComponent],

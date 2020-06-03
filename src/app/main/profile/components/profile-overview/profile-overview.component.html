@@ -1,0 +1,17 @@
+<div class="profile-overview-wrapper" *ngIf="loggedUser">
+	<div class="profile-overview-container">
+		<div class="name">{{ loggedUser.firstName + ' ' + loggedUser.lastName }}</div>
+		<div class="avatar">
+			<img [src]="loggedUser.avatar" alt="User Profile Picture" />
+		</div>
+		<div class="links">
+			<a routerLink="/profile/edit" *ngIf="!loggedUser.adminRights">
+				<div class="edit-profile">Edit Profile</div>
+			</a>
+			<a routerLink="/profile/users" *ngIf="loggedUser.adminRights">
+				<div class="view-users">View Users</div>
+			</a>
+			<div class="logout" (click)="logout()">Logout</div>
+		</div>
+	</div>
+</div>
