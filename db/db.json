@@ -18,7 +18,27 @@
 			"avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
 			"adminRights": false,
 			"id": 2,
-			"ratedCourses": []
+			"ratedCourses": [1, 3]
+		},
+		{
+			"email": "vankata@mail.com",
+			"password": "$2a$10$CuHTTKXvRfpVD5eDUIeIJu6V8h463Ot3KmxHboxQvcDntCJvKRKQW",
+			"firstName": "Ivan",
+			"lastName": "Ivanov",
+			"avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
+			"adminRights": false,
+			"ratedCourses": [3, 4],
+			"id": 3
+		},
+		{
+			"email": "admin2@mail.com",
+			"password": "$2a$10$C1/FPMKGnK86C3rUBwz9iughFdm3hFQPK4/.njFKu/eQa2w03pdHW",
+			"firstName": "newer ",
+			"lastName": "and better admin",
+			"avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
+			"adminRights": true,
+			"ratedCourses": [],
+			"id": 4
 		}
 	],
 	"courses": [
@@ -29,18 +49,18 @@
 			"coverImage": "https://www.freecodecamp.org/news/content/images/2020/04/Copy-of-Copy-of-Travel-Photography.png",
 			"adminId": 1,
 			"date": 1591126678869,
-			"favouritedBy": [],
-			"ratings": []
+			"favouritedBy": [4],
+			"ratings": [7, 9, 4, 7, 8]
 		},
 		{
 			"id": 2,
 			"title": "NodeJS - The Complete Guide (incl. MVC, REST APIs, GraphQL)",
 			"description": "Master Node JS, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL & much more!",
 			"coverImage": "https://miro.medium.com/max/1200/1*m5RYM_Wkj4LsZewpigV5tg.jpeg",
-			"adminId": 1,
+			"adminId": 4,
 			"date": 1591126735313,
-			"favouritedBy": [],
-			"ratings": []
+			"favouritedBy": [2],
+			"ratings": [5, 6, 4, 10, 4, 8, 6]
 		},
 		{
 			"id": 3,
@@ -49,8 +69,8 @@
 			"coverImage": "https://images.idgesg.net/images/article/2019/03/javaworld_jvm_jdk_jre_explainer_java_development_kit_write_3x2_2400x1600_by_idg_oracle_vasabii_gettyimages-100790551-large.jpg",
 			"adminId": 1,
 			"date": 1591126835701,
-			"favouritedBy": [],
-			"ratings": []
+			"favouritedBy": [2],
+			"ratings": [2, 1, 7, 2, 4]
 		},
 		{
 			"id": 4,
@@ -60,17 +80,17 @@
 			"adminId": 1,
 			"date": 1591126889898,
 			"favouritedBy": [],
-			"ratings": []
+			"ratings": [10, 4, 5, 7, 1]
 		},
 		{
 			"id": 5,
 			"title": "The Web Developer Bootcamp",
 			"description": "The only course you need to learn web development - HTML, CSS, JS, Node, and More!",
 			"coverImage": "https://lh3.googleusercontent.com/proxy/mCgcLnDgUXbDK2UE4J3Wa6bwHhZoHDfdB1nK6VDkKF5qhklig1hujITdQvtAIwtcI3cuSYNWwiO5kiWKNs-bjsVxlf0lTxXVEXBfCO3Q9B_M9BsuONIvpG4BKAjfFA",
-			"adminId": 1,
+			"adminId": 4,
 			"date": 1591127053454,
-			"favouritedBy": [],
-			"ratings": []
+			"favouritedBy": [4],
+			"ratings": [7, 8]
 		}
 	]
 }

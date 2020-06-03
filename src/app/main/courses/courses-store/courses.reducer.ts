@@ -10,10 +10,23 @@ export const coursesReducer = createReducer(
 			courses: [...action.payload],
 		};
 	}),
+	on(CoursesActions.storeUserCourses, (state, action) => {
+		return {
+			...state,
+			loggedUserCourses: [...action.payload],
+		};
+	}),
+	on(CoursesActions.storeUserFavourites, (state, action) => {
+		return {
+			...state,
+			loggedUserFavourites: [...action.payload],
+		};
+	}),
 	on(CoursesActions.addCourse, (state, action) => {
 		return {
 			...state,
 			courses: [...state.courses, action.payload],
+			loggedUserCourses: [...state.loggedUserCourses, action.payload],
 		};
 	}),
 	on(CoursesActions.updateCourse, (state, action) => {
@@ -28,6 +41,7 @@ export const coursesReducer = createReducer(
 		return {
 			...state,
 			courses: [...state.courses.filter((course) => course.id !== action.payload)],
+			loggedUserCourses: [...state.loggedUserCourses.filter((course) => course.id !== action.payload)],
 		};
 	})
 );

@@ -1,10 +1,17 @@
-<div class="courses-list-wrapper">
-	<div class="new-course">
+<div class="courses-list-wrapper" *ngIf="loggedUser">
+	<div class="new-course" *ngIf="loggedUser.adminRights">
 		<div class="text">Create New Course</div>
 		<div class="redirect">
 			<a routerLink="/courses/new" href="/courses/new">
 				<button>Here</button>
 			</a>
 		</div>
+	</div>
+	<div class="courses-list" *ngIf="courses">
+		<ng-container *ngFor="let course of courses">
+			<div class="course">
+				<app-course-item [course]="course"></app-course-item>
+			</div>
+		</ng-container>
 	</div>
 </div>

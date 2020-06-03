@@ -1,0 +1,157 @@
+@import '../../../../../assets/scss/variables.scss';
+
+@mixin icon($name, $active-color, $inactive-color) {
+	-webkit-mask: url('../../../../../assets/images/icons/#{$name}.svg') no-repeat center;
+	mask: url('../../../../../assets/images/icons/#{$name}.svg') no-repeat center;
+	background-color: $inactive-color;
+
+	&:hover {
+		background-color: $active-color;
+		transition: 0.2s;
+	}
+}
+
+.course-wrapper {
+	width: 100%;
+	height: 100%;
+
+	.course-container {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		box-shadow: $na-box-shadow;
+		display: flex;
+		flex-direction: column;
+
+		.course-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			padding: 10px 15px;
+
+			.author-info {
+				display: flex;
+				align-items: flex-end;
+
+				.author-avatar {
+					width: 25px;
+					height: 25px;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				.author-name {
+					margin: 0 10px;
+					font-weight: 600;
+					font-size: 1.2rem;
+				}
+			}
+
+			.course-date {
+				position: relative;
+				float: left;
+				text-align: center;
+				vertical-align: middle;
+				font-size: 12px;
+
+				a {
+					color: $na-grey;
+					text-decoration: none;
+
+					&:hover,
+					&:active,
+					&:focus {
+						text-decoration: none;
+						color: $na-dark;
+						transition: 0.2s;
+					}
+				}
+			}
+		}
+
+		.course-cover-image {
+			border-top: 10px solid $na-dark-primary-2;
+
+			img {
+				width: 100%;
+				height: 250px;
+				object-fit: cover;
+			}
+		}
+
+		.course-info-container {
+			overflow: hidden;
+			padding: 15px;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			.course-title {
+				margin: 10px 0px 10px 0px;
+				font-size: 1.8em;
+				font-weight: 600;
+			}
+
+			.course-description {
+				margin-bottom: 10px;
+				font-size: 1.4em;
+			}
+
+			.course-icons {
+				display: flex;
+				justify-content: space-between;
+
+				.rate-icon {
+					display: flex;
+					font-size: 1.4rem;
+
+					.rating-field {
+						display: flex;
+					}
+				}
+
+				.other-icons {
+					display: flex;
+					justify-content: flex-end;
+				}
+
+				.icon {
+					div {
+						width: 20px;
+						height: 20px;
+						background-color: $na-dark;
+						margin-left: 10px;
+						cursor: pointer;
+					}
+
+					.rate {
+						@include icon('star', $na-yellow, $na-dark);
+					}
+
+					.rated {
+						@include icon('star', $na-dark, $na-yellow);
+					}
+
+					.favourite {
+						@include icon('favourite', $na-dark-primary-1, $na-dark);
+					}
+
+					.favourited {
+						@include icon('favourite', $na-dark, $na-dark-primary-1);
+					}
+
+					.edit {
+						@include icon('edit', $na-dark-primary-1, $na-dark);
+					}
+
+					.delete {
+						@include icon('delete', $na-danger, $na-dark);
+					}
+				}
+			}
+		}
+	}
+}

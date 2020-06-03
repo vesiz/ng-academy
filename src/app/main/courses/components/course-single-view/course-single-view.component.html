@@ -1,1 +1,5 @@
-<p>course-single-view works!</p>
+<div class="container" *ngIf="course">
+	<div class="item">
+		<app-course-item [course]="course"></app-course-item>
+	</div>
+</div>

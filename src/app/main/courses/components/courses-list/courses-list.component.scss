@@ -34,4 +34,16 @@
 			}
 		}
 	}
+
+	.courses-list {
+		margin-top: 50px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		.course {
+			width: 48%;
+			margin-bottom: 20px;
+		}
+	}
 }

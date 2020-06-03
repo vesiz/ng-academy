@@ -19,3 +19,8 @@ export const selectloggedUserFavourites = createSelector(
 	selectCoursesFeature, //
 	(state: CoursesState) => state.loggedUserFavourites
 );
+
+export const selectCourse = createSelector(
+	selectCoursesFeature, //
+	(state: CoursesState, props: { id: number }) => state.courses.find((course) => course.id === props.id)
+);

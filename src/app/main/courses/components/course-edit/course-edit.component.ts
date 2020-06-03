@@ -46,7 +46,7 @@ export class CourseEditComponent implements OnInit {
 			this.buildForm();
 		} else {
 			this.id = parseInt(this.route.snapshot.params.id, 10);
-			this.getPosts();
+			this.getCourses();
 		}
 
 		this.getLoggedUser();
@@ -67,7 +67,7 @@ export class CourseEditComponent implements OnInit {
 			});
 	}
 
-	getPosts(): void {
+	getCourses(): void {
 		this.store.pipe(select(CoursesSelectors.selectCourses)).subscribe((response) => {
 			if (response.length !== 0) {
 				this.currentCourse = response.filter((course) => course)[0];

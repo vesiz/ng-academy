@@ -1,1 +1,75 @@
-<p>course-item works!</p>
+<div class="course-wrapper">
+	<div class="course-container">
+		<div class="course-header">
+			<div class="author-info" *ngIf="author">
+				<div class="author-avatar">
+					<img [src]="author.avatar" alt="auhtor avatar" />
+				</div>
+				<div class="author-name">{{ author.firstName + ' ' + author.lastName }}</div>
+			</div>
+			<div class="course-date" title="View Course">
+				<a [routerLink]="'/courses/' + course.id">{{ course.date | date: 'dd/MM/yyyy' }}</a>
+			</div>
+		</div>
+
+		<div class="course-cover-image">
+			<img [src]="course.coverImage" alt="Course Cover Image" />
+		</div>
+
+		<div class="course-info-container">
+			<div class="course-info">
+				<div class="course-title">{{ course.title }}</div>
+				<div class="course-description">{{ course.description }}</div>
+			</div>
+
+			<div class="course-icons" *ngIf="author && loggedUser">
+				<div class="rate-icon">
+					<span>{{ rating }}</span>
+					<span *ngIf="loggedUser.adminRights">&nbsp;Rating</span>
+					<div
+						(click)="onOpenRatingField()"
+						[ngStyle]="{ display: loggedUser.adminRights ? 'none' : 'inline-block' }"
+						class="icon"
+						[title]="isCourseRated ? 'You have already rated this course' : 'Rate course'"
+					>
+						<div [ngClass]="isCourseRated ? 'rated' : 'rate'"></div>
+					</div>
+					<div class="rating-field" *ngIf="!isCourseRated && isRatingFieldOpen">
+						<div class="rating-input">
+							<input #rating [(ngModel)]="newRating" required type="number" max="10" min="1" />
+						</div>
+						<div class="rating-submit">
+							<button (click)="onRate()" [disabled]="rating.valid">Rate</button>
+						</div>
+					</div>
+				</div>
+				<div class="other-icons">
+					<div
+						class="icon"
+						[title]="isCourseFavourited ? 'Remove course from favourites' : 'Add course to favourites'"
+						[ngStyle]="{ display: loggedUser.adminRights ? 'none' : 'inline-block' }"
+						(click)="onFavourite()"
+					>
+						<div [ngClass]="isCourseFavourited ? 'favourited' : 'favourite'"></div>
+					</div>
+					<a
+						[routerLink]="'/courses/' + course.id + '/edit'"
+						class="icon"
+						[ngStyle]="{ display: loggedUser.adminRights ? 'inline-block' : 'none' }"
+						title="Edit course"
+					>
+						<div class="edit"></div>
+					</a>
+					<div
+						class="icon"
+						[ngStyle]="{ display: loggedUser.adminRights ? 'inline-block' : 'none' }"
+						title="Delete course"
+						(click)="onDelete()"
+					>
+						<div class="delete"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

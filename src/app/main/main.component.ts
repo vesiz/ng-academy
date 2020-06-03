@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import * as coursesActions from '../main/courses/courses-store/courses.actions';
 import { CoursesState } from './courses/courses-store/courses.state';
+import { UserListsFacade } from './profile/facades/user-lists.facade';
 import { UsersFacade } from './users/facades/users.facade';
 
 @Component({
@@ -15,7 +16,11 @@ import { UsersFacade } from './users/facades/users.facade';
 export class MainComponent implements OnInit, OnDestroy {
 	destroy$ = new Subject<boolean>();
 
-	constructor(private usersFacade: UsersFacade, private coursesStore: Store<CoursesState>) {}
+	constructor(
+		private usersFacade: UsersFacade, //
+		private coursesStore: Store<CoursesState>,
+		private userListsFacade: UserListsFacade
+	) {}
 
 	ngOnInit(): void {
 		this.usersFacade.loadUsers();
@@ -28,6 +33,7 @@ export class MainComponent implements OnInit, OnDestroy {
 			});
 
 		this.coursesStore.dispatch(coursesActions.loadCourses());
+		this.userListsFacade.loadLists();
 	}
 
 	ngOnDestroy(): void {

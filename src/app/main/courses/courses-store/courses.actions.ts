@@ -5,6 +5,8 @@ import { Course } from 'src/app/shared/models/course.model';
 enum actionTypes {
 	LOAD_COURSES = '[Courses] Load Courses',
 	STORE_COURSES = '[Courses] Store Courses',
+	STORE_USER_COURSES = '[Courses] Store User Courses',
+	STORE_USER_FAVOURITES = '[Courses] Store User Favourites',
 	LOAD_COURSE = '[Courses] Load Course',
 	STORE_COURSE = '[Courses] Store Course',
 	ADD_COURSE = '[Courses] Add Course',
@@ -18,6 +20,16 @@ export const loadCourses = createAction(
 
 export const storeCourses = createAction(
 	actionTypes.STORE_COURSES, //
+	props<{ payload: Course[] }>()
+);
+
+export const storeUserCourses = createAction(
+	actionTypes.STORE_USER_COURSES, //
+	props<{ payload: Course[] }>()
+);
+
+export const storeUserFavourites = createAction(
+	actionTypes.STORE_USER_FAVOURITES, //
 	props<{ payload: Course[] }>()
 );
 
