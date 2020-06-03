@@ -1,0 +1,91 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.course-edit-wrapper {
+	width: 50%;
+	margin: auto;
+
+	.edit-form {
+		border: 1px solid $na-light;
+		border-radius: 5px;
+		box-shadow: $na-box-shadow;
+
+		.title {
+			font-size: 2rem;
+			border-bottom: 10px solid $na-dark-primary-2;
+			padding: 15px 0 10px 0;
+			text-align: center;
+		}
+
+		.form-wrapper {
+			padding: 10px 15px 15px 15px;
+			form {
+				.form-item {
+					margin-bottom: 10px;
+					font-size: 1.6rem;
+
+					label {
+						display: block;
+						padding: 0 0 5px 15px;
+					}
+
+					input,
+					textarea {
+						width: calc(100% - 30px);
+						min-height: 25px;
+						border: 1px solid $na-light-primary;
+						border-radius: 5px;
+						padding: 0 15px;
+
+						&:focus,
+						&:active,
+						&:hover {
+							outline: none;
+							border-width: 2px;
+							transition: 0.2s;
+						}
+					}
+
+					textarea {
+						padding: 10px 15px;
+					}
+				}
+
+				.buttons {
+					width: 50%;
+					margin: auto;
+					display: flex;
+					justify-content: space-evenly;
+
+					button {
+						border: none;
+						border-radius: 5px;
+						padding: 5px 10px;
+						font-size: 1.8rem;
+						cursor: pointer;
+						color: #fff;
+						font-weight: 500;
+
+						&:focus,
+						&:active {
+							outline: none;
+						}
+
+						&.submit {
+							background-color: $na-success;
+
+							&:disabled {
+								background-color: $na-success-disabled;
+								cursor: context-menu;
+							}
+						}
+
+						&.cancel {
+							color: $na-grey;
+							background-color: $na-light;
+						}
+					}
+				}
+			}
+		}
+	}
+}

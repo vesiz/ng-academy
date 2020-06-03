@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				email: ['', [Validators.required]],
 				password: ['', [Validators.required]],
 				confirmPassword: ['', [Validators.required]],
-				adminRights: [''],
+				adminRights: [false],
 			},
 			{ validators: this.validatePassword }
 		);
@@ -67,6 +67,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 			lastName: this.registerForm.value.lastName,
 			avatar: environment.baseAvatar,
 			adminRights: this.registerForm.value.adminRights,
+			ratedCourses: [],
 		};
 
 		return user;

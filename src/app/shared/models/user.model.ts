@@ -6,4 +6,5 @@ export interface User {
 	lastName: string;
 	avatar: string;
 	adminRights: boolean;
+	ratedCourses: number[];
 }

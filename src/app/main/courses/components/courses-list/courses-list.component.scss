@@ -1,0 +1,37 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.courses-list-wrapper {
+	width: 80%;
+	margin: auto;
+
+	.new-course {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 40%;
+		margin: auto;
+		font-size: 2rem;
+		border-radius: 3px;
+		box-shadow: $na-box-shadow;
+		border-bottom: 10px solid $na-dark-primary-2;
+		padding: 15px 20px 10px 20px;
+
+		.redirect {
+			button {
+				border: none;
+				border-radius: 5px;
+				padding: 5px 10px;
+				font-size: 1.8rem;
+				cursor: pointer;
+				background-color: $na-primary;
+				color: #fff;
+				font-weight: 500;
+
+				&:focus,
+				&:active {
+					outline: none;
+				}
+			}
+		}
+	}
+}

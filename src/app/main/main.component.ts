@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import * as coursesActions from '../main/courses/courses-store/courses.actions';
+import { CoursesState } from './courses/courses-store/courses.state';
 import { UsersFacade } from './users/facades/users.facade';
 
 @Component({
@@ -12,7 +15,7 @@ import { UsersFacade } from './users/facades/users.facade';
 export class MainComponent implements OnInit, OnDestroy {
 	destroy$ = new Subject<boolean>();
 
-	constructor(private usersFacade: UsersFacade) {}
+	constructor(private usersFacade: UsersFacade, private coursesStore: Store<CoursesState>) {}
 
 	ngOnInit(): void {
 		this.usersFacade.loadUsers();
@@ -23,6 +26,8 @@ export class MainComponent implements OnInit, OnDestroy {
 			.subscribe((response) => {
 				this.usersFacade.storeLoggedUser();
 			});
+
+		this.coursesStore.dispatch(coursesActions.loadCourses());
 	}
 
 	ngOnDestroy(): void {
