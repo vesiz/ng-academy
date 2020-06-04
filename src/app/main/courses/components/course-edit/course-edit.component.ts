@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { UsersFacade } from 'src/app/main/users/facades/users.facade';
 import { Course } from 'src/app/shared/models/course.model';
 import { User } from 'src/app/shared/models/user.model';
+import * as CoursesActions from '../../courses-store/courses.actions';
 import * as CoursesSelectors from '../../courses-store/courses.selectors';
 import { CoursesState } from '../../courses-store/courses.state';
 import { CoursesService } from '../../services/courses.service';
@@ -70,7 +71,7 @@ export class CourseEditComponent implements OnInit {
 	getCourses(): void {
 		this.store.pipe(select(CoursesSelectors.selectCourses)).subscribe((response) => {
 			if (response.length !== 0) {
-				this.currentCourse = response.filter((course) => course)[0];
+				this.currentCourse = response.find((course) => course.id === this.id);
 				this.buildForm();
 			}
 		});
@@ -105,7 +106,7 @@ export class CourseEditComponent implements OnInit {
 				coverImage: this.courseForm.value.coverImage,
 			};
 
-			this.coursesService.updateCourse(course).pipe(takeUntil(this.destroy$)).subscribe();
+			this.store.dispatch(CoursesActions.updateCourse({ payload: course }));
 		} else {
 			course = {
 				id: this.id,
@@ -118,7 +119,7 @@ export class CourseEditComponent implements OnInit {
 				ratings: [],
 			};
 
-			this.coursesService.addCourse(course).pipe(takeUntil(this.destroy$)).subscribe();
+			this.store.dispatch(CoursesActions.addCourse({ payload: course }));
 		}
 
 		this.navigateToMain();

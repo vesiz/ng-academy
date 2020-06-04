@@ -39,6 +39,16 @@
 			"adminRights": true,
 			"ratedCourses": [],
 			"id": 4
+		},
+		{
+			"email": "test1@mail.com",
+			"password": "$2a$10$g8m3kcvyKRS4hxc6MLnw1O2OAiL5mjXmFGW5npr6ir7qlEXlMHOIa",
+			"firstName": "test",
+			"lastName": "1",
+			"avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
+			"adminRights": false,
+			"ratedCourses": [],
+			"id": 5
 		}
 	],
 	"courses": [
@@ -86,11 +96,14 @@
 			"id": 5,
 			"title": "The Web Developer Bootcamp",
 			"description": "The only course you need to learn web development - HTML, CSS, JS, Node, and More!",
-			"coverImage": "https://lh3.googleusercontent.com/proxy/mCgcLnDgUXbDK2UE4J3Wa6bwHhZoHDfdB1nK6VDkKF5qhklig1hujITdQvtAIwtcI3cuSYNWwiO5kiWKNs-bjsVxlf0lTxXVEXBfCO3Q9B_M9BsuONIvpG4BKAjfFA",
+			"coverImage": "https://hackernoon.com/drafts/a4zx3210.png",
 			"adminId": 4,
 			"date": 1591127053454,
 			"favouritedBy": [4],
 			"ratings": [7, 8]
 		}
-	]
+	],
+	"blocked": {
+		"users": ["test3@mail.com", "test2@mail.com"]
+	}
 }

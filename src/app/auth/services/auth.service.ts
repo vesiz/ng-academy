@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EMPTY, iif, Observable } from 'rxjs';
+import { concatMap, tap } from 'rxjs/operators';
 
+import { UsersService } from 'src/app/main/users/services/users.service';
 import { User } from 'src/app/shared/models/user.model';
 import { environment } from 'src/environments/environment';
 import { AuthResponse } from '../models/auth-response';
@@ -12,13 +14,23 @@ import { AuthResponse } from '../models/auth-response';
 export class AuthService {
 	baseUrl = environment.apiUrl;
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private usersService: UsersService) {}
 
 	login(user: User): Observable<AuthResponse> {
 		return this.http.post<AuthResponse>(`${this.baseUrl}/login`, user);
 	}
 
 	register(user: User): Observable<AuthResponse> {
-		return this.http.post<AuthResponse>(`${this.baseUrl}/register`, user);
+		return this.usersService.getBlockedUsers().pipe(
+			concatMap((response) => {
+				return iif(
+					() => {
+						return response.users.includes(user.email);
+					},
+					EMPTY,
+					this.http.post<AuthResponse>(`${this.baseUrl}/register`, user)
+				);
+			})
+		);
 	}
 }

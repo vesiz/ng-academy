@@ -43,8 +43,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				firstName: ['', [Validators.required]],
 				lastName: ['', [Validators.required]],
 				email: ['', [Validators.required]],
-				password: ['', [Validators.required]],
-				confirmPassword: ['', [Validators.required]],
+				password: ['admin', [Validators.required]],
+				confirmPassword: ['admin', [Validators.required]],
 				adminRights: [false],
 			},
 			{ validators: this.validatePassword }
@@ -87,6 +87,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
 				},
 				(error: HttpErrorResponse) => {
 					this.errorMessage = error.error;
+					this.loading$.next(false);
+					this.buildForm();
+				},
+				() => {
+					this.errorMessage = 'You are on the list of blocked users and are therefore forbidden from creating an account.';
 					this.loading$.next(false);
 					this.buildForm();
 				}

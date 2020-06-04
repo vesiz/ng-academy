@@ -65,4 +65,8 @@ export class UsersFacade implements OnDestroy {
 	getUser(id: number | string): Observable<User> {
 		return this.store.pipe(select(UsersSelectors.selectUser, { id: id }));
 	}
+
+	blockUser(user: User): void {
+		this.store.dispatch(UsersActions.blockUser({ payload: user }));
+	}
 }

@@ -37,3 +37,8 @@ export const deleteUser = createAction(
 	actionTypes.DELETE_USER, //
 	props<{ id: number }>()
 );
+
+export const blockUser = createAction(
+	actionTypes.BLOCK_USER, //
+	props<{ payload: User }>()
+);

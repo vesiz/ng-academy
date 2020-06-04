@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, concatMap, map, mergeMap } from 'rxjs/operators';
 
 import { UsersService } from '../services/users.service';
 import * as UsersActions from './users.actions';
@@ -42,6 +42,19 @@ export class UsersEffects {
 				})
 			),
 		{ dispatch: false }
+	);
+
+	blockUser$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(UsersActions.blockUser),
+			concatMap((action) => {
+				return this.usersService.blockUser(action.payload).pipe(
+					map((response) => {
+						return UsersActions.deleteUser({ id: action.payload.id });
+					})
+				);
+			})
+		)
 	);
 
 	constructor(private actions$: Actions, private usersService: UsersService) {}

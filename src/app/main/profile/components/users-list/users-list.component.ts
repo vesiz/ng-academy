@@ -32,6 +32,10 @@ export class UsersListComponent implements OnInit {
 	}
 
 	onBlock(user: User): void {
-		console.log(user);
+		if (!confirm('Are you sure you want to block this user? They will never be able to create an account again.')) {
+			return;
+		}
+
+		this.usersFacade.blockUser(user);
 	}
 }
