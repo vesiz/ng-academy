@@ -1,0 +1,73 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.edit-profile-wrapper {
+	width: 50%;
+	margin: auto;
+
+	.edit-form {
+		box-shadow: $na-box-shadow;
+		font-size: 1.6rem;
+
+		.title {
+			font-size: 2rem;
+			border-bottom: 10px solid $na-dark-primary-2;
+			padding: 15px 20px 10px 20px;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.form-wrapper {
+			padding: 15px;
+
+			.form {
+				.form-item {
+					margin-bottom: 10px;
+
+					label {
+						display: block;
+						padding: 0 0 5px 15px;
+					}
+
+					input {
+						width: calc(100% - 30px);
+						min-height: 25px;
+						border: 1px solid $na-light-primary;
+						border-radius: 20px;
+						padding: 0 15px;
+
+						&:focus,
+						&:active,
+						&:hover {
+							outline: none;
+							border-width: 2px;
+							transition: 0.2s;
+						}
+					}
+				}
+
+				.submit {
+					text-align: center;
+					padding-top: 20px;
+
+					button {
+						border: none;
+						background-color: $na-primary;
+						color: white;
+						font-size: 1.8rem;
+						padding: 5px 15px;
+						cursor: pointer;
+
+						&:disabled {
+							background-color: $na-light-primary;
+							cursor: context-menu;
+						}
+
+						&:hover:not(:disabled) {
+							background-color: $na-dark-primary-1;
+						}
+					}
+				}
+			}
+		}
+	}
+}

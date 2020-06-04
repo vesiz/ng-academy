@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UsersFacade } from 'src/app/main/users/facades/users.facade';
 import { User } from 'src/app/shared/models/user.model';
@@ -9,17 +10,34 @@ import { User } from 'src/app/shared/models/user.model';
 	styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
+	loggedUser: User;
 	users: User[];
 
-	constructor(private usersFacade: UsersFacade) {
+	constructor(private usersFacade: UsersFacade, private router: Router) {
 		this.getUsers();
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.getLoggedUser();
+	}
 
 	getUsers(): void {
 		this.usersFacade.getUsers().subscribe((response) => {
 			this.users = response;
+		});
+	}
+
+	getLoggedUser(): void {
+		this.usersFacade.getLoggedUser().subscribe((response) => {
+			this.loggedUser = response;
+
+			if (this.loggedUser) {
+				if (!this.loggedUser.adminRights) {
+					this.router.navigate(['/not-found']);
+
+					return;
+				}
+			}
 		});
 	}
 

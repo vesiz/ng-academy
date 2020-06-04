@@ -23,7 +23,7 @@ export class UsersService {
 	}
 
 	updateUser(user: User): Observable<User> {
-		return this.http.put<User>(`${this.baseUrl}/users/${user.id}`, user);
+		return this.http.patch<User>(`${this.baseUrl}/users/${user.id}`, user);
 	}
 
 	deleteUser(id: number): Observable<{}> {

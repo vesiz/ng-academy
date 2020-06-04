@@ -12,10 +12,10 @@
 		},
 		{
 			"email": "vesi@mail.com",
-			"password": "$2a$10$fMt6X6xSsn9ScVLvn0UvLuz2C3G9yZkVO3KqJQ2vnD3474.uc5Ree",
+			"password": "$2a$10$WiajIQZWUVUwPuIEZbC3C.9I/7Vsz5AWeHvw3GyQtSbwxZ8rOmVw.",
 			"firstName": "Vesi",
 			"lastName": "Zoneva",
-			"avatar": "https://vectorified.com/images/default-image-icon-7.jpg",
+			"avatar": "https://icons.iconarchive.com/icons/diversity-avatars/avatars/1024/batman-icon.png",
 			"adminRights": false,
 			"id": 2,
 			"ratedCourses": [1, 3]

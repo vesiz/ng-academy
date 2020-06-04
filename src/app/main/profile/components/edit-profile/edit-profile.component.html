@@ -1,1 +1,38 @@
-<p>edit-profile works!</p>
+<div class="edit-profile-wrapper">
+	<div class="edit-form" *ngIf="loggedUser">
+		<div class="title">Edit Your Profile Information</div>
+		<div class="form-wrapper">
+			<div class="form">
+				<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngIf="profileForm">
+					<div class="form-item">
+						<label for="firstName">First Name</label>
+						<input type="text" formControlName="firstName">
+					</div>
+					<div class="form-item">
+						<label for="lastName">Last Name</label>
+						<input type="text" formControlName="lastName">
+					</div>
+					<div class="form-item">
+						<label for="avatar">Profile Picture</label>
+						<input type="text" formControlName="avatar">
+					</div>
+					<div class="form-item">
+						<label for="password">New Password</label>
+						<input type="password" formControlName="newPassword">
+					</div>
+					<div class="form-item">
+						<label for="confirmPassword">Confirm Password</label>
+						<input type="password" formControlName="confirmPassword">
+					</div>
+					<div class="form-item">
+						<label for="password">Enter your current password to submit the changes</label>
+						<input type="password" formControlName="currentPassword">
+					</div>
+					<div class="form-item submit">
+						<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

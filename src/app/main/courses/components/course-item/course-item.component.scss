@@ -110,6 +110,39 @@
 
 					.rating-field {
 						display: flex;
+						align-items: center;
+						margin: 0 20px;
+
+						.rating-input {
+							input {
+								border: 1px solid $na-light-primary;
+								border-radius: 3px;
+								min-height: 25px;
+								padding-left: 10px;
+
+								&:focus {
+									outline: none;
+								}
+							}
+						}
+
+						.rating-submit {
+							margin-left: 3px;
+
+							button {
+								border: none;
+								background-color: #fff;
+								padding: 5px;
+
+								&:hover {
+									background-color: $na-light-primary;
+								}
+
+								&:focus {
+									outline: none;
+								}
+							}
+						}
 					}
 
 					span {
