@@ -12,13 +12,13 @@
 		},
 		{
 			"email": "vesi@mail.com",
-			"password": "$2a$10$WiajIQZWUVUwPuIEZbC3C.9I/7Vsz5AWeHvw3GyQtSbwxZ8rOmVw.",
+			"password": "$2a$10$o9uqjzm3RDVS4L4eqRo6bOMWYWm01xHEPFmjCG526r5Y0MesZL5pi",
 			"firstName": "Vesi",
 			"lastName": "Zoneva",
 			"avatar": "https://icons.iconarchive.com/icons/diversity-avatars/avatars/1024/batman-icon.png",
 			"adminRights": false,
-			"id": 2,
-			"ratedCourses": [1, 3]
+			"ratedCourses": [1, 3],
+			"id": 2
 		},
 		{
 			"email": "vankata@mail.com",

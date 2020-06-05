@@ -47,7 +47,6 @@
 
 				.submit {
 					text-align: center;
-					padding-top: 20px;
 
 					button {
 						border: none;
@@ -68,6 +67,12 @@
 					}
 				}
 			}
+		}
+
+		.error-message {
+			color: $na-danger;
+			text-align: center;
+			margin: 20px 0;
 		}
 	}
 }

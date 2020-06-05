@@ -24,7 +24,7 @@ export class EditProfileComponent implements OnInit {
 		private authFacade: AuthFacade,
 		private router: Router,
 		private usersFacade: UsersFacade
-	) {}
+	) { }
 
 	ngOnInit(): void {
 		this.getLoggedUser();
@@ -102,7 +102,11 @@ export class EditProfileComponent implements OnInit {
 			(response) => {
 				this.loading$.next(false);
 				this.usersFacade.updateUser(updatedUser);
-				this.router.navigate(['/profile']);
+
+				setTimeout(() => {
+					this.router.navigate(['/profile']);
+				}, 1000);
+
 			},
 			(error: HttpErrorResponse) => {
 				this.errorMessage = error.error;

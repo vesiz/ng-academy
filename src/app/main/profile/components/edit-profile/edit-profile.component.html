@@ -28,6 +28,9 @@
 						<label for="password">Enter your current password to submit the changes</label>
 						<input type="password" formControlName="currentPassword">
 					</div>
+
+					<div class="error-message">{{errorMessage}}</div>
+
 					<div class="form-item submit">
 						<button type="submit" [disabled]="!profileForm.valid">Submit</button>
 					</div>
